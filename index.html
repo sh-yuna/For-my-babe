@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>For My Babe ❤️</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: "Georgia", serif;
+      background:
+        radial-gradient(circle at top, #ffeef5 0%, #ffdce9 35%, #f7c8da 100%);
+      color: #542536;
+      overflow-x: hidden;
+    }
+
+    .screen {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 25px;
+    }
+
+    /* PASSWORD */
+
+    #lockScreen {
+      text-align: center;
+    }
+
+    .lock-card {
+      width: 100%;
+      max-width: 390px;
+      padding: 40px 28px;
+      border-radius: 28px;
+      background: rgba(255,255,255,0.72);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 20px 60px rgba(120,50,80,0.18);
+    }
+
+    .heart {
+      font-size: 48px;
+      margin-bottom: 12px;
+      animation: heartbeat 1.5s infinite;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.12); }
+    }
+
+    .lock-card h1 {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .lock-card p {
+      font-size: 15px;
+      opacity: 0.75;
+      margin-bottom: 25px;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      outline: none;
+      border-radius: 14px;
+      text-align: center;
+      font-size: 18px;
+      letter-spacing: 5px;
+      background: #fff7fa;
+      color: #542536;
+      margin-bottom: 14px;
+    }
+
+    button {
+      border: none;
+      padding: 13px 25px;
+      border-radius: 30px;
+      background: #c85a82;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(200,90,130,0.25);
+    }
+
+    button:active {
+      transform: scale(0.97);
+    }
+
+    #error {
+      color: #b33c62;
+      margin-top: 12px;
+      display: none;
+      font-size: 14px;
+    }
+
+    /* MAIN WEBSITE */
+
+    #main {
+      display: none;
+      min-height: 100vh;
+      padding-bottom: 70px;
+    }
+
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 35px 22px;
+    }
+
+    .small-text {
+      font-size: 15px;
+      letter-spacing: 2px;
+      opacity: 0.7;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 12vw, 75px);
+      font-weight: normal;
+      font-style: italic;
+      margin-bottom: 15px;
+    }
+
+    .hero .subtitle {
+      font-size: 18px;
+      max-width: 500px;
+      line-height: 1.7;
+      opacity: 0.8;
+    }
+
+    .scroll {
+      margin-top: 50px;
+      font-size: 13px;
+      opacity: 0.55;
+      animation: float 2s infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(8px); }
+    }
+
+    .section {
+      max-width: 900px;
+      margin: auto;
+      padding: 70px 22px;
+      text-align: center;
+    }
+
+    .section h2 {
+      font-size: 30px;
+      font-weight: normal;
+      font-style: italic;
+      margin-bottom: 30px;
+    }
+
+    /* PHOTOS */
+
+    .photos {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .photo {
+      height: 260px;
+      border-radius: 20px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.5);
+      box-shadow: 0 10px 30px rgba(90,30,60,0.12);
+    }
+
+    .photo:first-child {
+      grid-column: span 2;
+      height: 330px;
+    }
+
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* MESSAGE */
+
+    .message-card {
+      background: rgba(255,255,255,0.65);
+      backdrop-filter: blur(10px);
+      border-radius: 25px;
+      padding: 35px 25px;
+      line-height: 2;
+      font-size: 17px;
+      box-shadow: 0 15px 40px rgba(90,30,60,0.1);
+    }
+
+    .message-card .name {
+      font-size: 29px;
+      font-style: italic;
+      margin: 20px 0;
+    }
+
+    /* FINAL */
+
+    .final {
+      min-height: 65vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 30px;
+    }
+
+    .final h2 {
+      font-size: clamp(35px, 9vw, 60px);
+      font-weight: normal;
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+
+    .final p {
+      max-width: 550px;
+      line-height: 1.9;
+      font-size: 17px;
+    }
+
+    .final .big-heart {
+      font-size: 45px;
+      margin-top: 30px;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 12px;
+      opacity: 0.45;
+      padding: 20px;
+    }
+
+    /* FLOATING HEARTS */
+
+    .floating-heart {
+      position: fixed;
+      bottom: -30px;
+      font-size: 18px;
+      opacity: 0.45;
+      pointer-events: none;
+      animation: rise 7s linear infinite;
+    }
+
+    @keyframes rise {
+      0% {
+        transform: translateY(0);
+        opacity: 0;
+      }
+      15% {
+        opacity: 0.45;
+      }
+      100% {
+        transform: translateY(-110vh);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .photos {
+        gap: 10px;
+      }
+
+      .photo {
+        height: 190px;
+      }
+
+      .photo:first-child {
+        height: 250px;
+      }
+
+      .message-card {
+        padding: 28px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- PASSWORD SCREEN -->
+
+  <section id="lockScreen" class="screen">
+    <div class="lock-card">
+
+      <div class="heart">♡</div>
+
+      <h1>For My Babe</h1>
+
+      <p>A little surprise is waiting for you...</p>
+
+      <input
+        type="password"
+        id="password"
+        placeholder="password"
+        maxlength="4"
+      >
+
+      <button onclick="unlock()">Open ♡</button>
+
+      <div id="error">Hmm... try again, babe ♡</div>
+
+    </div>
+  </section>
+
+
+  <!-- MAIN WEBSITE -->
+
+  <main id="main">
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+      <div class="small-text">A little surprise for you...</div>
+
+      <h1>For My Babe ♡</h1>
+
+      <p class="subtitle">
+        Just a tiny little corner of the internet,
+        made with lots of love for someone special.
+      </p>
+
+      <div class="scroll">
+        ↓ keep going, sweetheart ↓
+      </div>
+
+    </section>
+
+
+    <!-- PHOTOS -->
+
+    <section class="section">
+
+      <h2>A few little memories ♡</h2>
+
+      <div class="photos">
+
+        <!-- PHOTO 1 -->
+        <div class="photo">
+          <img src="photo1.jpg" alt="Memory">
+        </div>
+
+        <!-- PHOTO 2 -->
+        <div class="photo">
+          <img src="photo2.jpg" alt="Memory">
+        </div>
+
+        <!-- PHOTO 3 -->
+        <div class="photo">
+          <img src="photo3.jpg" alt="Memory">
+        </div>
+
+        <!-- PHOTO 4 -->
+        <div class="photo">
+          <img src="photo4.jpg" alt="Memory">
+        </div>
+
+        <!-- PHOTO 5 -->
+        <div class="photo">
+          <img src="photo5.jpg" alt="Memory">
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- MESSAGE -->
+
+    <section class="section">
+
+      <h2>For you, sweetheart ♡</h2>
+
+      <div class="message-card">
+
+        <div class="name">
+          Happy Birthday, Harshini ♡
+        </div>
+
+        <p>
+          I don't really know how to put everything into words,
+          so I'll just say this...
+        </p>
+
+        <br>
+
+        <p>
+          I hope this year brings you so many reasons to smile,
+          so many beautiful moments, and all the happiness
+          you deserve.
+        </p>
+
+        <br>
+
+        <p>
+          Keep being the wonderful person you are,
+          babe. And whenever life gets a little difficult,
+          remember that there are people who genuinely
+          care about you.
+        </p>
+
+        <br>
+
+        <p>
+          Once again, happy birthday, sweetheart. ♡
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- FINAL -->
+
+    <section class="final">
+
+      <h2>Happy Birthday,<br>Harshini ♡</h2>
+
+      <p>
+        Here's to another year of memories,
+        laughter, random moments and
+        everything beautiful that's yet to come.
+      </p>
+
+      <div class="big-heart">♡</div>
+
+    </section>
+
+
+    <footer>
+      Made with love, just for my babe ♡
+    </footer>
+
+  </main>
+
+
+  <!-- MUSIC -->
+
+  <audio id="music" loop>
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+
+
+  <script>
+
+    function unlock() {
+
+      const password =
+        document.getElementById("password").value;
+
+      const error =
+        document.getElementById("error");
+
+      if (password === "2709") {
+
+        document.getElementById("lockScreen").style.display = "none";
+        document.getElementById("main").style.display = "block";
+
+        const music = document.getElementById("music");
+
+        music.volume = 0.18;
+
+        music.play().catch(() => {});
+
+        createHearts();
+
+        window.scrollTo(0, 0);
+
+      } else {
+
+        error.style.display = "block";
+
+      }
+
+    }
+
+
+    function createHearts() {
+
+      setInterval(() => {
+
+        const heart =
+          document.createElement("div");
+
+        heart.className = "floating-heart";
+        heart.innerHTML = "♡";
+
+        heart.style.left =
+          Math.random() * 100 + "vw";
+
+        heart.style.animationDuration =
+          (5 + Math.random() * 5) + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 10000);
+
+      }, 1200);
+
+    }
+
+
+    document
+      .getElementById("password")
+      .addEventListener("keydown", function(event) {
+
+        if (event.key === "Enter") {
+          unlock();
+        }
+
+      });
+
+  </script>
+
+</body>
+</html>
